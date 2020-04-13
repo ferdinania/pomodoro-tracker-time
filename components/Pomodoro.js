@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { View, StyleSheet, Text, Button } from 'react-native'
+import { View, StyleSheet, Text, Button, ImageBackground } from 'react-native'
 
 let intervalTime;
 let countDownDate;
@@ -53,15 +53,17 @@ const pomodoro = props => {
 
     return (
         <View style={styles.containerApp}>
-            <Text style={{ fontSize: 80, color: '#F03A27' }}>{time}</Text>
-            <View style={styles.buttons}>
-                <View style={styles.btn}>
-                    <Button color='#F03A27' disabled={time==='00:00' && !timeIsRunning} title={timeIsRunning ? 'PAUSE' : 'PLAY'} onPress={playPressedHandler} />
+            <ImageBackground source={require('../assets/bg.png')} style={styles.image}>
+                <Text style={{ fontSize: 70, color: '#F09694' }}>{time}</Text>
+                <View style={styles.buttons}>
+                    <View style={styles.btn}>
+                        <Button color='#F0685E' disabled={time==='00:00' && !timeIsRunning} title={timeIsRunning ? 'PAUSE' : 'PLAY'} onPress={playPressedHandler} />
+                    </View>
+                    <View style={styles.btn}>
+                        <Button color='#F0A481' title='RESET' disabled={timeIsRunning} onPress={resetPressedHandler} />
+                    </View>
                 </View>
-                <View style={styles.btn}>
-                    <Button color='#F0A481' title='RESET' disabled={timeIsRunning} onPress={resetPressedHandler} />
-                </View>
-            </View>
+            </ImageBackground>
       </View>
     )
 }
@@ -70,9 +72,9 @@ const pomodoro = props => {
 const styles = StyleSheet.create({
     containerApp: {
         flex: 1,
-        backgroundColor: '#EFDAD7',
-        alignItems: 'center',
-        justifyContent: 'center'
+        // backgroundColor: '#EFDAD7',
+        // alignItems: 'center',
+        // justifyContent: 'center'
     },
     buttons: {
         flexDirection: 'row',
@@ -81,7 +83,13 @@ const styles = StyleSheet.create({
     },
     btn: {
         width: '20%'
-    }
+    },
+    image: {
+        flex: 1,
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: "center"
+    },
 })
 
 
