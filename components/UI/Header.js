@@ -5,6 +5,7 @@ import { View, StyleSheet, Text } from 'react-native'
 const header = props => (
     <View style={styles.header}>
         <Text style={styles.headerText}>{props.title}</Text>
+        // TODO: Agregar item de menu para registrar intervalos de tiempos (pendientes, finalizados)
     </View>
 )
 

@@ -24,6 +24,7 @@ const pomodoro = props => {
     useEffect(() => {
         if (countDownDate && timeIsRunning)
             intervalTime = setInterval(updateCountdown, 1000)
+            // FIXME: no se esta reflejando enseguida el timer actualizado
         else {
             clearInterval(intervalTime)
         }
@@ -63,6 +64,8 @@ const pomodoro = props => {
                         <Button color='#F0A481' title='RESET' disabled={timeIsRunning} onPress={resetPressedHandler} />
                     </View>
                 </View>
+                // TODO: Personalizar el intervalo de tiempos,
+                // a través de una pantalla de configuracion
             </ImageBackground>
       </View>
     )
